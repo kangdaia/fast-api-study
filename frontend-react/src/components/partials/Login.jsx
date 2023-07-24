@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import '../../index.css'
-import fastAPIconn from '../../hooks/authenticate';
+import fastAPIconn from '../../auth/authenticate';
 import { Form } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 
 function LoginComp() {
     function handleSubmit(e) {
@@ -16,13 +16,12 @@ function LoginComp() {
             password: formData.get("password")
         }
 
-        fastAPIconn('/api/user/login', form.method, params)
+        fastAPIconn('/api/user/login', 'login', params)
         .then((data) => {
-            if (data === "success") {
-                alert("회원가입이 완료되었습니다.")
+            if (data.detail) {
+                alert(data.detail)
             } else {
-                console.log(data["detail"][0].msg)
-                alert(data["detail"][0].msg)
+                console.log(data.access_token)
             }
         })
     }

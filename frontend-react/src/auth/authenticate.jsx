@@ -1,21 +1,30 @@
 import { json, redirect } from "react-router-dom";
+import qs from 'qs';
 
 async function fastAPIconn(url, operation, params) {
     let _url = import.meta.env.VITE_SERVER_URL + url
+    let method = operation
+    let content_type = "application/json"
     let body = JSON.stringify(params)
 
-    if (operation === "get") {
+    if(operation === 'login') {
+        method = 'post'
+        content_type = 'application/x-www-form-urlencoded'
+        body = qs.stringify(params)
+    }
+
+    if (method === "get") {
         _url += "?" + new URLSearchParams(params)
     }
 
     let options = {
-        method: operation,
+        method: method,
         headers: {
-            "Content-Type" : "application/json"
+            "Content-Type" : content_type
         },
     }
 
-    if (operation !== 'get') {
+    if (method !== 'get') {
         options['body'] = body
     }
 

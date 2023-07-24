@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../../index.css'
 import { Form } from "react-router-dom";
-import fastAPIconn from '../../hooks/authenticate';
+import fastAPIconn from '../../auth/authenticate';
 
 function SignUpComp() {
     const [password, setPassword] = useState("");
