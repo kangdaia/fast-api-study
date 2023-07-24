@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import '../../index.css'
 import fastAPIconn from '../../auth/authenticate';
-import { Form } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Form, useNavigate } from 'react-router-dom';
 
 function LoginComp() {
+    const navigate = useNavigate();
     function handleSubmit(e) {
         // Prevent the browser from reloading the page
         e.preventDefault();
@@ -21,7 +21,9 @@ function LoginComp() {
             if (data.detail) {
                 alert(data.detail)
             } else {
-                console.log(data.access_token)
+                localStorage.setItem("user", JSON.stringify(data));
+                navigate("/profile");
+                window.location.reload();
             }
         })
     }
@@ -46,7 +48,7 @@ function LoginComp() {
                         required
                     />
                 </label>
-                <button type="submit" className="bg-zinc-600 px-5 py-2 flex-shrink my-2.5">로그인</button>
+                <button type="submit" className="bg-zinc-600 px-5 py-2 flex-shrink my-2.5 text-white">로그인</button>
             </Form>
             <p className='py-2.5 mt-2.5'>
                 아직 회원이 아니라면? <a href='/signup'>회원가입</a>

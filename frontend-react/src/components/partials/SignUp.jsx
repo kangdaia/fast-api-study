@@ -110,7 +110,7 @@ function SignUpComp() {
                         : null
                     }
                 </label>
-                <button type="submit" className="bg-zinc-600 px-5 py-2 flex-shrink my-2.5">가입하기</button>
+                <button type="submit" className="bg-zinc-600 px-5 py-2 flex-shrink my-2.5 text-white">가입하기</button>
             </Form>
             <p className='py-2.5 mt-2.5'>
                 이미 계정이 있다면? <a href='/login'>로그인</a>

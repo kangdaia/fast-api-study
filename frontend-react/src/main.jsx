@@ -9,6 +9,7 @@ import {
 import ErrorPage from "./components/Error404.jsx";
 import LoginComp from './components/partials/Login.jsx';
 import SignUpComp from './components/partials/SignUp.jsx';
+import Profile from './components/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUpComp />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       }
     ],
   },
