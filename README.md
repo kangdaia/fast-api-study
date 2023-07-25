@@ -16,16 +16,21 @@ fast-api-study
 │   ├── repository\
 │   │   ├── mongo_handler.py
 │   │   ├── main.py
-├── front-ui\
+├── frontend-react\
+│   ├── src\ # main file
 ├── tests\
 │   ├── test_async_main.py
 ├── entrypoint.py
 ```
 
 ## To run
-
+### backend
 - pipenv shell
 - python3 entrypoint.py
 
 for test:
 - pytest
+
+### frontend
+- cd frontend-react
+- npm run dev

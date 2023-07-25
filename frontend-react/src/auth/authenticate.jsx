@@ -26,7 +26,8 @@ async function fastAPIconn(url, operation, params) {
 
     const user = localStorage.getItem("user");
     if (user) {
-        options.headers["Authorization"] = "Bearer " + user.access_token
+        let data = JSON.parse(user);
+        options.headers["Authorization"] = "Bearer " + data["access_token"]
     }
 
     if (method !== 'get') {

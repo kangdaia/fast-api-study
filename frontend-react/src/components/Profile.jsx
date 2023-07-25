@@ -14,7 +14,6 @@ function Profile() {
             if (data.detail) {
                 alert(data.detail);
             } else {
-                console.log(data);
                 setProfile(data);
             }
         })
@@ -42,7 +41,6 @@ function Profile() {
                         name="username"
                         type="text"
                         value={profile.username}
-                        placeholder={profile.username}
                     />
                 </label>
                 <label className="grid grid-row gap-2 text-left">
@@ -51,9 +49,33 @@ function Profile() {
                         name="email"
                         type="email"
                         value={profile.email}
-                        placeholder={profile.email}
                     />
                 </label>
+                <label className="grid grid-row gap-2 text-left">
+                    <b>비밀번호</b>
+                    <input className="bg-zinc-800 p-2"
+                        name="old_password"
+                        type="password"
+                        required
+                    />
+                </label>
+                <label className="grid grid-row gap-2 text-left">
+                    <b>새 비밀번호</b>
+                    <input className="bg-zinc-800 p-2"
+                        name="password1"
+                        type="password"
+                        required
+                    />
+                </label>
+                <label className="grid grid-row gap-2 text-left">
+                    <b>새 비밀번호 확인</b>
+                    <input className="bg-zinc-800 p-2"
+                        name="password2"
+                        type="password"
+                        required
+                    />
+                </label>
+                <button type="submit" className="bg-zinc-600 px-5 py-2 flex-shrink my-2.5 text-white">수정하기</button>
             </Form>
         </div>
     );

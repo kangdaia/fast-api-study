@@ -19,6 +19,9 @@ function App() {
     if (user) {
       setCurrentUser(user);
     }
+    return (
+      localStorage.removeItem("user")
+    )
   }, []);
 
   return (
